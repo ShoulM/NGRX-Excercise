@@ -1,0 +1,12 @@
+<div>
+  ID: <input #id type="number">
+  First Name: <input #fname type="text">
+  Last Name: <input #lname type="text">
+  Age :<input #age type="number">
+  <br/>
+  <br/>
+  <button (click)="addUser({id: id.value, firstName: fname.value, lastName: lname.value, age: age.value})">Add</button>
+  <button (click)="updateUser({id: id.value, firstName: fname.value, lastName: lname.value, age: age.value})">Update</button>
+  <button (click)="deleteUser(id.value)">Delete</button>
+  <app-users-viewer></app-users-viewer>
+</div>

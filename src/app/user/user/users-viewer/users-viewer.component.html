@@ -1,0 +1,16 @@
+<div style="width:400px;border: solid 5px green;">
+
+  <br/>
+  <h3>All users :</h3>
+  <table border="1">
+    <tr *ngFor="let user of users$ | async">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </table>
+  <br/>
+      <app-adult-users-viewer></app-adult-users-viewer>
+  <br/>
+</div>
