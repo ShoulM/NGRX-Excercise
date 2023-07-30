@@ -1,0 +1,9 @@
+<div style="width:400px;border: solid 5px green;">
+
+    <ng-container *ngIf="notesForUser$ | async as notesForUser">
+        <h3>Notes for {{notesForUser.user?.firstName}} {{notesForUser.user?.lastName}}:</h3>
+        <p *ngFor="let note of notesForUser.notes">
+            {{note.note}}
+        </p>
+    </ng-container>
+</div>

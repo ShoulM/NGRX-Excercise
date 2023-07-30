@@ -13,3 +13,9 @@ export const selectAdultUsers = createSelector(
   users => users.filter(user => user.age  >= 18)
 );
 
+export const selectUserById = (id: number) => createSelector(
+    selectAll,
+    users => users.find(user => user.id === id)
+
+)
+

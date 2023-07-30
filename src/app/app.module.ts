@@ -11,6 +11,10 @@ import { EffectsModule } from '@ngrx/effects';
 import {UserEffects} from "./state/user/user.effects";
 import {debug} from "./state/meta-reducer.reducer";
 import { AdultUsersViewerComponent } from './user/user/users-viewer/adult-users-viewer/adult-users-viewer.component';
+import { NoteComponent } from './note/note.component';
+import {FormsModule} from "@angular/forms";
+import {noteReducer} from "./state/Note/note.reducer";
+import { NoteViewerByUserComponent } from './note/note-viewer-by-user/note-viewer-by-user.component';
 
 
 @NgModule({
@@ -18,13 +22,16 @@ import { AdultUsersViewerComponent } from './user/user/users-viewer/adult-users-
     AppComponent,
     UserComponent,
     UsersViewerComponent,
-    AdultUsersViewerComponent
+    AdultUsersViewerComponent,
+    NoteComponent,
+    NoteViewerByUserComponent
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({'users': userReducer}, {metaReducers: [debug]}),
+    StoreModule.forRoot({'users': userReducer, notes: noteReducer}, {metaReducers: [debug]}),
     EffectsModule.forRoot([UserEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
