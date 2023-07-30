@@ -9,12 +9,13 @@ import {userReducer} from "./state/user/user.reducer";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import {UserEffects} from "./state/user/user.effects";
-import {debug} from "./state/meta-reducer.reducer";
+import {syncNotesWithSessionStorage} from "./state/meta-reducer.reducer";
 import { AdultUsersViewerComponent } from './user/user/users-viewer/adult-users-viewer/adult-users-viewer.component';
 import { NoteComponent } from './note/note.component';
 import {FormsModule} from "@angular/forms";
 import {noteReducer} from "./state/Note/note.reducer";
 import { NoteViewerByUserComponent } from './note/note-viewer-by-user/note-viewer-by-user.component';
+import {NoteEffects} from "./state/Note/note.effects";
 
 
 @NgModule({
@@ -28,8 +29,8 @@ import { NoteViewerByUserComponent } from './note/note-viewer-by-user/note-viewe
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({'users': userReducer, notes: noteReducer}, {metaReducers: [debug]}),
-    EffectsModule.forRoot([UserEffects]),
+    StoreModule.forRoot({'users': userReducer, notes: noteReducer}, {metaReducers: [syncNotesWithSessionStorage]}),
+    EffectsModule.forRoot([UserEffects, NoteEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     FormsModule
   ],

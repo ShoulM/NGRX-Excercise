@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {selectAllUsers} from "../state/user/user.selectors";
 import {Observable} from "rxjs";
 import {User} from "../models/User.model";
-import {addNoteAction} from "../state/Note/note.actions";
+import {addNoteAction, loadNotesAction} from "../state/Note/note.actions";
 
 @Component({
   selector: 'app-note',
@@ -14,6 +14,7 @@ export class NoteComponent {
   users$: Observable<User[]>;
   selectedUserId: string ='';
   constructor(private store: Store) {
+    this.store.dispatch(loadNotesAction());
     this.users$ = store.select(selectAllUsers);
   }
 
