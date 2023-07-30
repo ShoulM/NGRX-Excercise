@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import * as UserActions from './user.actions';
-import {catchError, concatMap, EMPTY, of, switchMap} from "rxjs";
+import {concatMap, EMPTY, of, switchMap} from "rxjs";
 import {User} from "../../models/User.model";
 import * as _ from "lodash";
 

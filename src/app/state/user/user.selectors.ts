@@ -1,7 +1,5 @@
 import {userAdapter, UserState} from "./user.reducer";
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {User} from "../../models/User.model";
-
 
 
 export const selectUserState = createFeatureSelector<UserState>('users');
