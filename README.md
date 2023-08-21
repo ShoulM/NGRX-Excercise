@@ -1,4 +1,9 @@
-# NgrxExcercise
+# NGRX Excercise
+
+This is an Angular project demonstrating the usage of [NGRX](https://ngrx.io/) for state management.
+Beyond the basic [ngrx/store](https://ngrx.io/guide/store) it also uses some more advanced capabilities of NGRX such as [meta-reducers](https://ngrx.io/guide/store/metareducers), [ngrx/effects](https://ngrx.io/guide/effects) and [ngrx/entity](https://ngrx.io/guide/entity) 
+
+##
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
