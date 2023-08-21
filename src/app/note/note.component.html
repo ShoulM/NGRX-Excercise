@@ -1,14 +1,14 @@
 <p>note works!</p>
-<select #selectedUser [(ngModel)]="selectedUserId" (ngModelChange)="onUserSelectChange($event)">
+<select [(ngModel)]="selectedUserId" (ngModelChange)="onUserSelectChange(selectedUserId)">
   <option *ngFor="let user of users$ | async" value="{{user.id}}">{{user.firstName}} {{user.lastName}}</option>
 </select>
 <br>
 <br>
-<textarea #noteText style="min-width: 700px; min-height: 300px"></textarea>
+<textarea [(ngModel)]="noteText" style="min-width: 700px; min-height: 300px"></textarea>
 <br>
 <br>
 
-<button (click)="addMessage(selectedUser.value, noteText.value)">Add message</button>
+<button (click)="addMessage(selectedUserId, noteText)">Add message</button>
 <br>
 <br>
 <app-note-viewer-by-user *ngIf="selectedUserId" [selectedUser]="selectedUserId"></app-note-viewer-by-user>

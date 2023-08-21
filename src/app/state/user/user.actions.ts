@@ -7,3 +7,4 @@ export const loadUsersSuccess = createAction('[User/API] Load Users Success', pr
 export const addUser = createAction('[User/API] Add User', props<{ user: User }>());
 export const updateUser = createAction('[User/API] Update User', props<{ update: Update<User> }>());
 export const deleteUser = createAction('[User/API] Delete User', props<{ id: number }>());
+export const changeSelectedUserId = createAction('[User/API] Change selected user', props<{ selectedUserId: number }>());

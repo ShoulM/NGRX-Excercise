@@ -4,6 +4,7 @@ import {selectAllUsers} from "../state/user/user.selectors";
 import {Observable} from "rxjs";
 import {User} from "../models/User.model";
 import {addNoteAction, loadNotesAction} from "../state/Note/note.actions";
+import { changeSelectedUserId } from "../state/user/user.actions";
 
 @Component({
   selector: 'app-note',
@@ -13,6 +14,7 @@ import {addNoteAction, loadNotesAction} from "../state/Note/note.actions";
 export class NoteComponent {
   users$: Observable<User[]>;
   selectedUserId: string ='';
+  noteText: string = '';
   constructor(private store: Store) {
     this.store.dispatch(loadNotesAction());
     this.users$ = store.select(selectAllUsers);
@@ -25,7 +27,9 @@ export class NoteComponent {
 
   }
 
-  onUserSelectChange($event: Event) {
-
+  onUserSelectChange(selectedUserId: string) {
+    //reset note when user changes
+    this.store.dispatch(changeSelectedUserId( {selectedUserId: parseInt(selectedUserId)} ));
+    this.noteText = '';
   }
 }
